@@ -3,14 +3,13 @@ package org.jhuguet.utils;
 import demo.StringUtils;
 
 public class Utils {
+    private final StringUtils utils = new StringUtils();
 
-    public boolean isAllPositiveNumbers(String ...parameters){
-
-        StringUtils utils = new StringUtils();
-
-        for(String param : parameters){
-            if(!utils.isPositiveNumber(param)) return false;
+    public String isAllPositiveNumbers(String... parameters) {
+        for (String param : parameters) {
+            if (!utils.checkIfNumber(param)) return "There are incorrect values in array e.g. Not numbers";
+            if (!utils.isPositiveNumber(param)) return "There are negative numbers in array";
         }
-        return true;
+        return "All numbers are positive";
     }
 }
